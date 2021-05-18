@@ -3,44 +3,49 @@ const Workout = require("../models/workout.js");
 const path = require("path");
 
 router.post("/api/workouts", ({ body }, res) => {
-  Workout.create(body)
+  Workout.create({})
     .then((dbWorkout) => {
       res.json(dbWorkout);
     })
-    .catch((err) => {
-      res.status(400).json(err);
+    .catch(({ message }) => {
+      console.log(message);
     });
 });
 
-router.put("/api/workouts/:id", ({ body }, res) => {
-  Workout.create(body)
-    .then((dbWorkout) => {
-      res.json(dbWorkout);
-    })
-    .catch((err) => {
-      res.status(400).json(err);
-    });
-});
+router.put("/api/workouts/:id", ({ params, body }, res) => {
+  console.log(body, params);
 
-router.get("/api/workouts", (req, res) => {
-  Workout.find({})
-    .sort({ date: -1 })
+  Workout.findOneAndUpdate(
+    { _id: params.id },
+    { $push: { exercises: body } },
+    { new: true }
+  )
     .then((dbWorkout) => {
       res.json(dbWorkout);
     })
     .catch((err) => {
-      res.status(400).json(err);
+      res.json(err);
     });
 });
 
 router.get("/api/workouts/range", (req, res) => {
   Workout.find({})
-    .sort({ date: -1 })
+    .limit(7)
     .then((dbWorkout) => {
       res.json(dbWorkout);
     })
     .catch((err) => {
-      res.status(400).json(err);
+      res.json(err);
+    });
+});
+
+router.get("/api/workouts", (req, res) => {
+  Workout.find({})
+    .then((dbWorkout) => {
+      res.json(dbWorkout);
+    })
+    .catch((err) => {
+      res.json(err);
     });
 });
 
@@ -50,6 +55,10 @@ router.get("/exercise", function (req, res) {
 
 router.get("/stats", function (req, res) {
   res.sendFile(path.join(__dirname, "../public/stats.html"));
+});
+
+router.get("/exercise", function (req, res) {
+  res.sendFile(path.join(__dirname, "../public/index.html"));
 });
 
 module.exports = router;
