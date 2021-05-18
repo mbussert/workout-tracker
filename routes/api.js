@@ -13,7 +13,7 @@ router.post("/api/workouts", ({ body }, res) => {
 });
 
 router.put("/api/workouts/:id", ({ params, body }, res) => {
-  console.log(body, params);
+  console.log("PARAMS", body, params);
 
   Workout.findOneAndUpdate(
     { _id: params.id },
