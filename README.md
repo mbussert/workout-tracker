@@ -24,8 +24,6 @@ An app to view create and track daily workouts. A user can log multiple exercise
 
 A user navigates to the deployed application URL and creates a new workout by adding various exercises.
 
-![Home Page](./ss1.png)
-
 ## Usage:
 
 A user creates a new workout or continues an already existing workout by adding an exercise. All workouts are tracked and displayed on the user dashboard.
