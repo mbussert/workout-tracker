@@ -22,21 +22,21 @@ An app to view create and track daily workouts. A user can log multiple exercise
 
 ## Installation:
 
-A user navigates to the deployed application URL and creates a free account by entering a username, email address, and password.
+A user navigates to the deployed application URL and creates a new workout by adding various exercises.
 
-![Register Page](./ss2.png)
+![Home Page](./ss1.png)
 
 ## Usage:
 
-Once a user creates an account/registers, they are taken to their personal dashboard where they can see all of their posts. The available links in the navigation bar also swap over now that the user is logged in. The user may edit or delete only their posts. The edit modal is pre-populated with the post information so that the user does not have to copy & paste or retype the entire post. A user will be automatically logged out if left inactive for 5 minutes.
+A user creates a new workout or continues an already existing workout by adding an exercise. All workouts are tracked and displayed on the user dashboard.
 
-![Dashboard](./ss3.png)
+![Add Exercise](./ss3.png)
 
-![Edit Post](./ss4.png)
+![Dashboard](./ss2.png)
 
 ## License:
 
-This application is covered under the GNU GPLv3 license.
+This application is covered under the MIT License.
 
 ## Contributing:
 
